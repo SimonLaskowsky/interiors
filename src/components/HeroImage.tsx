@@ -193,7 +193,7 @@ export default function HeroImage({
           style={{ mixBlendMode: "difference", color: "#ffffff" }}
         >
           <div className="tracking-brutal text-xs md:text-sm uppercase">
-            Atelier 09 — Interior Works
+            Laskowski.studio — Interior Works
           </div>
           <nav className="hidden md:flex gap-6 text-xs uppercase tracking-brutal">
             <a href="#works" className="hover:opacity-70">
@@ -241,7 +241,7 @@ export default function HeroImage({
           className="flex items-end justify-between gap-4 text-[10px] uppercase tracking-brutal"
           style={{ mixBlendMode: "difference", color: "#ffffff" }}
         >
-          <div>© Atelier 09 / Est. 2019</div>
+          <div>© Laskowski.studio / Est. 2019</div>
 
           <div className="pointer-events-auto flex items-center gap-5">
             <button

@@ -165,11 +165,11 @@ export default function InteriorGrid({ house, onBack }: Props) {
                   ← Back to exterior
                 </button>
                 <a
-                  href="mailto:hello@atelier09.studio"
+                  href="mailto:hello@laskowski.studio"
                   data-cursor="hover"
                   className="border border-concrete/30 hover:border-moss-glow px-4 py-3 text-concrete hover:text-moss-glow transition-colors"
                 >
-                  hello@atelier09.studio
+                  hello@laskowski.studio
                 </a>
               </div>
             </div>

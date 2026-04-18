@@ -20,9 +20,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Atelier — Brutalist Interiors",
+  title: "Laskowski.studio — Brutalist Interiors",
   description:
-    "Interior design studio — concrete, glass, and green. Step inside.",
+    "Studio by Szymon Laskowski. Concrete, glass, and green. Step inside.",
 };
 
 export default function RootLayout({
