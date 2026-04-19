@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Hotspot as HotspotData } from "../houses";
 
 type Props = {
@@ -9,9 +9,27 @@ type Props = {
 
 export default function Hotspot({ data }: Props) {
   const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
     <div
+      ref={rootRef}
       className="absolute -translate-x-1/2 -translate-y-1/2"
       style={{ left: `${data.x * 100}%`, top: `${data.y * 100}%` }}
     >
