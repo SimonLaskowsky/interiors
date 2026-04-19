@@ -29,8 +29,36 @@ export type House = {
   tiles: Tile[];
 };
 
-const img = (seed: string, w = 1600, h = 1200) =>
-  `https://picsum.photos/seed/${seed}/${w}/${h}`;
+// Curated Unsplash interior photography (brutalist / minimal / concrete).
+// Using direct image URLs with Unsplash's on-the-fly resize so we don't
+// need to ship the binaries in /public.
+const u = (id: string, w = 1600, h = 1200) =>
+  `https://images.unsplash.com/photo-${id}?w=${w}&h=${h}&q=80&auto=format&fit=crop`;
+
+// Shared set of photos used across the landing gallery, the carousel reel
+// slide, and the single-post strip — keep these in sync so the brand
+// reads as one system.
+export const INTERIORS = {
+  concreteLiving: "1616486338812-3dadae4b4ace",
+  stairConcrete: "1522771739844-6a9f6d5f14af",
+  bedroomLinen: "1540574163026-643ea20ade25",
+  kitchenModern: "1600210492486-724fe5c67fb0",
+  bathStone: "1552321554-5fefe8c9ef14",
+  readingNook: "1600585154340-be6161a56a0c",
+  gardenCourt: "1616046229478-9901c5536a45",
+  diningMoody: "1617806118233-18e1de247200",
+  libraryOak: "1583847268964-b28dc8f51f92",
+  hallShadow: "1615529182904-14819c35db37",
+  studyConcrete: "1567767292278-a4f21aa2d36e",
+  terraceSun: "1618221118493-9cfa1a1c00da",
+  kitchenGreen: "1600607687939-ce8a6c25118c",
+} as const;
+
+export const interiorUrl = (
+  id: keyof typeof INTERIORS,
+  w = 1600,
+  h = 1200,
+) => u(INTERIORS[id], w, h);
 
 export const spanClass: Record<Tile["span"], string> = {
   big: "md:col-span-6 md:row-span-2",
@@ -52,7 +80,7 @@ export const houses: House[] = [
       {
         id: "living",
         span: "big",
-        src: img("concrete-living", 1800, 1400),
+        src: interiorUrl("concreteLiving", 1800, 1400),
         alt: "Living room — concrete walls, oak floor",
         caption: "Living Hall",
         hotspots: [
@@ -77,7 +105,7 @@ export const houses: House[] = [
       {
         id: "reading",
         span: "wide",
-        src: img("reading-nook", 1800, 900),
+        src: interiorUrl("readingNook", 1800, 900),
         alt: "Reading nook — glass wall",
         caption: "Reading nook",
         hotspots: [
@@ -100,7 +128,7 @@ export const houses: House[] = [
       {
         id: "bath",
         span: "std",
-        src: img("bath-stone", 1200, 1200),
+        src: interiorUrl("bathStone", 1200, 1200),
         alt: "Bath — travertine",
         caption: "Bath",
         hotspots: [
@@ -116,7 +144,7 @@ export const houses: House[] = [
       {
         id: "garden",
         span: "std",
-        src: img("garden-court", 1200, 1200),
+        src: interiorUrl("gardenCourt", 1200, 1200),
         alt: "Inner garden — courtyard",
         caption: "Courtyard",
         hotspots: [
@@ -143,7 +171,7 @@ export const houses: House[] = [
       {
         id: "stair",
         span: "tall",
-        src: img("stair-concrete", 1200, 1600),
+        src: interiorUrl("stairConcrete", 1200, 1600),
         alt: "Concrete stair",
         caption: "Stair",
         hotspots: [
@@ -158,7 +186,7 @@ export const houses: House[] = [
       {
         id: "bedroom",
         span: "big",
-        src: img("bedroom-linen", 1800, 1400),
+        src: interiorUrl("bedroomLinen", 1800, 1400),
         alt: "Bedroom — linen and oak",
         caption: "Primary suite",
         hotspots: [
@@ -181,7 +209,7 @@ export const houses: House[] = [
       {
         id: "dining",
         span: "wide",
-        src: img("dining-moody", 1800, 900),
+        src: interiorUrl("diningMoody", 1800, 900),
         alt: "Dining — moody",
         caption: "Dining",
         hotspots: [
@@ -197,7 +225,7 @@ export const houses: House[] = [
       {
         id: "library",
         span: "std",
-        src: img("library-oak", 1200, 1200),
+        src: interiorUrl("libraryOak", 1200, 1200),
         alt: "Library",
         caption: "Library",
         hotspots: [
@@ -225,7 +253,7 @@ export const houses: House[] = [
       {
         id: "kitchen",
         span: "big",
-        src: img("kitchen-green", 1800, 1400),
+        src: interiorUrl("kitchenGreen", 1800, 1400),
         alt: "Kitchen — brushed steel and moss",
         caption: "Kitchen",
         hotspots: [
@@ -241,7 +269,7 @@ export const houses: House[] = [
       {
         id: "hall",
         span: "wide",
-        src: img("hall-shadow", 1800, 900),
+        src: interiorUrl("hallShadow", 1800, 900),
         alt: "Entrance hall",
         caption: "Hall",
         hotspots: [
@@ -257,7 +285,7 @@ export const houses: House[] = [
       {
         id: "study",
         span: "tall",
-        src: img("study-concrete", 1200, 1600),
+        src: interiorUrl("studyConcrete", 1200, 1600),
         alt: "Study",
         caption: "Study",
         hotspots: [
@@ -273,7 +301,7 @@ export const houses: House[] = [
       {
         id: "terrace",
         span: "std",
-        src: img("terrace-sun", 1200, 1200),
+        src: interiorUrl("terraceSun", 1200, 1200),
         alt: "Terrace",
         caption: "Terrace",
         hotspots: [

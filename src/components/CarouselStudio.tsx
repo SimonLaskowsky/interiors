@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { interiorUrl } from "./houses";
 
 // Each slide is 1080 × 1350 (Instagram portrait 4:5 — the highest-reach ratio).
 // Render one at a time, user screenshots with Cmd+Shift+4 + Space.
@@ -312,9 +313,9 @@ function ReelSlide() {
   // Simulates the horizontal interior reel — three image tiles shifted
   // slightly to imply horizontal scroll, with a progress bar below.
   const tiles = [
-    "https://picsum.photos/seed/concrete-living/900/1100",
-    "https://picsum.photos/seed/stair-concrete/900/1100",
-    "https://picsum.photos/seed/bedroom-linen/900/1100",
+    interiorUrl("concreteLiving", 900, 1100),
+    interiorUrl("stairConcrete", 900, 1100),
+    interiorUrl("bedroomLinen", 900, 1100),
   ];
   return (
     <div className="absolute inset-0 bg-ink flex flex-col justify-between p-[6%]">

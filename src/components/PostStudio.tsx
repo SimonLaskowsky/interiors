@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { interiorUrl } from "./houses";
 
 // A single-post "site poster" composition that captures the whole
 // experience in one frame. Two layouts to choose from:
@@ -120,10 +121,10 @@ function PosterLayout() {
       <div className="shrink-0 relative overflow-hidden px-[4%] pt-[3%]" style={{ flex: "0 0 22%" }}>
         <div className="flex gap-[2%] h-full">
           {[
-            "https://picsum.photos/seed/concrete-living/900/1100",
-            "https://picsum.photos/seed/stair-concrete/900/1100",
-            "https://picsum.photos/seed/bedroom-linen/900/1100",
-            "https://picsum.photos/seed/kitchen-green/900/1100",
+            interiorUrl("concreteLiving", 900, 1100),
+            interiorUrl("stairConcrete", 900, 1100),
+            interiorUrl("bedroomLinen", 900, 1100),
+            interiorUrl("kitchenGreen", 900, 1100),
           ].map((src, i) => (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img
